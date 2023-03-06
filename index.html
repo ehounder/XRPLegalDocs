@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>XRPLegalDocs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/css/styleXUMM.css">
+    <script src="https://unpkg.com/xrpl@2.0.0/build/xrpl-latest-min.js"></script>
+    <script src="https://xumm.apcssp/assets/cdn/xumm-oauth2-pkce.min.js"></script>
+    <script src="https://xumm.app/assets/cdn/xumm-sdk.min.js"></script>
+    <!--<script src="https://xrpaddress.info/js/xrpl-tagged-address-codec-browser.js"></script>-->
+    <script src="https://kit.fontawesome.com/54f4a89728.js" crossorigin="anonymous"></script>
+    <script>
+        if (typeof module !== "undefined") {
+            const xrpl = require('xrpl')
+        }
+    </script>
+    <!-- Logging/debug messages in console -->
+    <script>localStorage.debug = '*'</script>
+</head>
+<body style="background-color:rgb(9, 116, 9);">
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <label class="logo"><img class="left-fit" height="80px" width="480px"
+                src="/images/XRPLegalDocs_logo.png" alt="XRPLegalDocs"></label>
+        <ul>
+            <li><a href="https://www.legalzoom.com/" target="blank" rel="noopener noreferrer">LegalZoom</a></li>
+            <li><a href="https://www.rocketlawyer.com/" target="blank" rel="noopener noreferrer">RocketLawyer</a></li>
+            <li><a href="https://bithomp.com/explorer/" target="blank" rel="noopener noreferrer">XRP
+                Explorer</a></li>
+            <li><a href="https://www.xrptoolkit.com/get-wallet"
+                    target="blank" rel="noopener noreferrer">XRP Toolkit</a></li>
+            <li><a href="https://xrpl.org/index.html" target="blank" rel="noopener noreferrer">XRP Ledger</a></li>
+            <li><a id="contact" href="https://twitter.com/tensornerdo" target="blank"
+                    rel="noopener noreferrer">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="column" style="text-align:center">
+
+        <!-- XRPL SECURITY AGREEMENT FORM -->
+        <iframe id="SecurityAgreementFrame" class="center-fit groove"
+            style="width:1000px; height:4500px; border: 8px solid white" src="/templates/SecurityAgreement.html"
+            title="XRPL Security Agreement Form">
+        </iframe>
+    </div>
+
+    <!-- BACK TO THE TOP -->
+    <p style="color:White; text-align:center"><a href="#contact">- BACK TO THE TOP -</a></p>
+    <br><br>
+</body>
+
+</html>
