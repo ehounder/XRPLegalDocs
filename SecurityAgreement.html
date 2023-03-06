@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="us-ascii">
+    <title>Security Agreement</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/static/css/styleXUMM.css">
+    <script src="https://unpkg.com/xrpl@2.0.0/build/xrpl-latest-min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xrpl-client@2.0.4/dist/browser.min.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/xrpl-hooks@2.0.2/dist/xrpl-hooks.browser.min.js"></script>-->
+    <script src="https://xumm.app/assets/cdn/xumm-sdk.min.js"></script>
+    <script src="five-bells-condition.min.js"></script>
+    <script src="buffer.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js" integrity="sha512-PvpmY/xg+Ie9/mN35RyM+RSfAYpFCEMZGmDwJ+e2z3Zq3hXKcJRVmbyob7jcIJy+8/L2Q2Xd/27jKUFWG6lxWQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
+    <!--<script src="https://xrpaddress.info/js/xrpl-tagged-address-codec-browser.js"></script>-->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+<body style="background-color:rgb(231, 237, 231);">
+    <div id="SecurityAgreementForm">
+        <h3 style="color:rgb(5, 5, 5); text-align:center">Security Agreement</h3>
+
+        <p>This security agreement is between,
+            <strong><label id="lenderName"></label></strong>
+            <input id="lenderNameField" type="text" placeholder="Lender Name" maxlength="40" />
+            <button class="button-save" id="lenderNameButton" type="button">save</button>
+
+            <strong><label id="lenderIndividualOrBusiness"></label></strong>
+            <button class="button-XUMM" id="lenderIndividualButton" type="button">an individual</button>
+            <button class="button-XUMM" id="lenderBusinessButton" type="button">a business</button>
+            (the "Lender") and,
+
+            <strong><label id="borrowerName"></label></strong>
+            <input id="borrowerNameField" type="text" placeholder="Borrower Name" maxlength="40" />
+            <button class="button-save" id="borrowerNameButton" type="button">save</button>
+
+            <strong><label id="borrowerIndividualOrBusiness"></label></strong>
+            <button class="button-XUMM" id="borrowerIndividualButton" type="button">an individual</button>
+            <button class="button-XUMM" id="borrowerBusinessButton" type="button">a business</button>
+            (the "Borrower").
+        </p>
+
+        <p id="left">The Borrower is indebted to the Lender in the amount of,
+            <strong><label id="loanAmount" type="number"></label></strong>
+            <input id='loanAmountField' type="number" min="0" placeholder="XRP Loan Amount" />
+            <button class="button-save" id='loanAmountButton' type='button'>save</button>
+            XRP (the "<strong>Loan</strong>"). The Loan is evidenced by a promissory note
+            effective on the same date as this agreement (the "<strong>Note</strong>"), a copy of
+            which is attached as <strong>Exhibit A</strong>. The Note and this agreement are
+            collectively referred to as the "<strong>Loan Documents</strong>."
+        </p>
+
+        <p id="left">To induce the Lender to provide Loan to the Borrower as evidenced by the Note,
+            the Borrower has agreed to enter into this security agreement for the benefit of the
+            Lender and to grant the Lender a security interest in the Secured Property (as defined
+            below) to secure the prompt payment, performance, and discharge in full of the
+            Borrower's obligations under the Note.</p>
+
+        <p align-text="left">The parties therefore agree as follows:</p>
+        <p><strong>1. GRANT OF SECURITY INTEREST.</strong></p>
+        <p>The Borrower grants to the Lender a security interest in the Secured Property (as defined
+            in section 2 below) to secure payment of the Loan.</p>
+
+        <p><strong>2. SECURED PROPERTY.</strong></p>
+        <p>The secured property consists of all of the Borrower's interest as of the effective date
+            of this agreement in the following properties and rights, wherever located, whether now
+            owned or existing or later acquired and arising (the "<strong>Secured Property</strong>"):
+        </p>
+        <strong><label id="securedProperty"></label></strong>
+        <textarea rows="5" cols="100" id="securedPropertyField" name="text"></textarea>
+        <button class="button-save" id='securedPropertyButton' type='button'>save</button>
+
+        <p><strong>3. INDEBTEDNESS.</strong></p>
+        <p>This agreement is made to secure payment when due of the Loan. The Loan includes:</p>
+        <p>(a) all obligations of the Borrower to the Lender under the Note;</p>
+        <p>(b) all amendments, renewals, or extensions of the above;</p>
+        <p>(c) all costs incurred by the Lender in establishing, determining, continuing, or
+            defending the validity or priority of its security interest, or in pursuing its rights
+            under this agreement or any other Loan Document or in connection with any proceeding
+            involving the Lender as a result of any financial accommodation to the Borrower; and</p>
+        <p>(d) all other costs of collecting the Loan, including attorneys' fees.</p>
+
+        <p>The Borrower shall reimburse the Lender for these expenses immediately on demand, and
+            until paid all costs shall bear interest at the highest per year rate applicable to the
+            Loan and permitted by law.</p>
+        <p><strong>4. REAFFIRMATION OF LOAN.</strong></p>
+        <p>The Borrower hereby reaffirms its obligation for the full and punctual payment and
+            performance of the Note and all other obligations of the Borrower under the Note.</p>
+        <p><strong>5. BORROWER'S OBLIGATIONS.</strong></p>
+        <ul>
+            <li>(a) The Borrower shall pay the Loan at the time and in the manner provided in the
+                Note;</li>
+            <li>(b) The Borrower shall ensure that the Secured Property remains free of all security
+                interests other than the rights of the Lender created by this agreement;</li>
+            <li>(c) The Borrower will defend the Lender's interest in the Secured Property against
+                the claims of all other persons; and</li>
+            <li>(d) The Borrower may not transfer any Secured Property while this agreement is in
+                effect without the prior written consent of the Lender, which consent may be
+                withheld or given in the Lender's sole discretion.</li>
+        </ul>
+        <p><strong>6. RECORDING OF AGREEMENT.</strong></p>
+        <p>On the effective date of this agreement, the Borrower will record this agreement and any
+            security instrument creating a security interest on the Secured Property as required by
+            law to protect the security interest of the Lender on the Secured Property. The Borrower
+            shall pay all filing fees and associated expenses incident to this recordation.</p>
+        <p><strong>7. EVENTS OF DEFAULT.</strong></p>
+        <p>The Borrower will be in default under this agreement if any of the following occurs:</p>
+        <ul>
+            <li>(a) A default in the payment of the Loan or any of the obligations contained in this
+                agreement or in the Loan Documents;</li>
+            <li>(b) Any representation made to the Lender by the Borrower proving to have been false
+                in any material respect when made;</li>
+            <li>(c) Loss, theft, substantial damage, or destruction, or any sale or encumbrance to
+                which the Lender did not consent in writing, of the Secured Property, or the making
+                of a levy, seizure, or attachment on that property; or</li>
+            <li>(d) An Event of Default, as defined in the Note.</li>
+        </ul>
+        <p><strong>8. REMEDIES FOR EVENTS OF DEFAULT.</strong></p>
+        <p>If an Event of Default occurs, the Lender may declare the Loan immediately due. In
+            addition, the Lender will have all of the remedies set forth below, and these remedies
+            are cumulative, so that the Lender may exercise one or more of these remedies until the
+            Loan is paid in full without right of reinstatement, disgorgement, or repayment by
+            reason of a preference, other creditor action, or by operation of law:</p>
+        <ul>
+            <li>(a) cause all or any portion of the Secured Property to be registered in its name or
+                the name of its nominee, designee, or assignee;</li>
+            <li>(b) have the exclusive right to receive all distributions with respect to the
+                Secured Property;</li>
+            <li>(c) dispose of the Secured Property, at private or public sale, without
+                advertisement of the time or place of the sale (or any adjournment), free of any
+                right of redemption by the Borrower (this right of redemption being expressly waived
+                by the Borrower), at the price, in the manner, and to the purchaser (including the
+                Lender) that the Lender determines in its sole discretion. The proceeds of this sale
+                will be applied to the Loan and the sale expenses (and the Borrower will remain
+                liable for any deficiencies); or</li>
+            <li>(d) all other rights and remedies arising under this agreement or applicable law.
+            </li>
+        </ul>
+        <p><strong>9. RESPONSIBILITY FOR SECURED PROPERTY.</strong></p>
+        <p>The Borrower assumes all responsibility for the Secured Property, and the Loan will not
+            be affected by the loss, destruction, damage, or theft of any of the Secured Property or
+            its unavailability for any reason. The Lender</p>
+        <ul>
+            <li>(a) has no duty (either before or after an Event of Default) to collect any amounts
+                related to the Secured Property or to preserve any rights relating to the Secured
+                Property, and</li>
+            <li>(b) has no obligation to clean up or otherwise prepare the Secured Property for
+                sale.</li>
+        </ul>
+        <p>The Borrower remains obligated under each agreement included in the Secured Property. The
+            exercise of the Lender of any rights under this agreement does not release the Borrower
+            from its obligations under the agreements included in the Secured Property. The Lender
+            has no liability under the agreements included in the Secured Property.</p>
+        <p><strong>10. TERMINATION.</strong></p>
+        <p>This agreement and all rights of the Lender under this agreement will terminate when the
+            Lender is satisfied that the Loan and all other obligations of the Borrower under the
+            Loan Documents are paid and performed in full without reinstatement, disgorgement, or
+            repayment by reason of a preference, other credit or action, or operation of law.</p>
+        <p><strong>11. INCONSISTENCIES.</strong></p>
+        <p>If any provision of this agreement is inconsistent with any provision in the Note, the
+            provisions of [this agreement| the promissory note"] will control.</p>
+        <p><strong>12. GOVERNING LAW.</strong></p>
+        <ul>
+            <li>(a) <strong>Choice of Law.</strong> The laws of the state of [Choose State] govern
+                this agreement (without giving effect to its conflicts of law principles).</li>
+            <li>(b) <strong>Choice of Forum</strong>. Both parties consent to the personal
+                jurisdiction of the state and federal courts in [Choose County].</li>
+        </ul>
+        <p><strong>13. AMENDMENTS.</strong></p>
+        <p>No amendment to this agreement will be effective unless it is in writing and signed by
+            both parties.</p>
+        <p><strong>14. ASSIGNMENT AND DELEGATION.</strong></p>
+        <ul>
+            <li>(a) <strong>No Assignment.</strong> The Borrower may not assign any of its rights
+                under this note. All voluntary assignments of rights are limited by this subsection.
+            </li>
+            <li>(b) <strong>No Delegation.</strong> The Borrower may not delegate any performance
+                under this note.</li>
+            <li>(c) <strong>Enforceability of an Assignment or Delegation.</strong> If a purported
+                assignment or purported delegation is made, or if both are made, in violation of
+                this section, it is void and they are void.</li>
+        </ul>
+        <p><strong>15. COUNTERPARTS; ELECTRONIC SIGNATURES.</strong></p>
+        <ul>
+            <li>(a) <strong>Counterparts.</strong> The parties may execute this agreement in any
+                number of counterparts, each of which is an original but all of which constitute one
+                and the same instrument.</li>
+            <li>(b) <strong>Electronic Signatures.</strong> This agreement, agreements ancillary to
+                this agreement, and related documents entered into in connection with this agreement
+                are signed when a party's signature is delivered by facsimile, email, or other
+                electronic medium. These signatures must be treated in all respects as having the
+                same force and effect as original signatures.</li>
+        </ul>
+        <p><strong>16. SEVERABILITY.</strong></p>
+        <p>If any one or more of the provisions contained in this agreement is, for any reason, held
+            to be invalid, illegal, or unenforceable in any respect, that invalidity, illegality, or
+            unenforceability will not affect any other provisions of this agreement, but this
+            agreement will be construed as if those invalid, illegal, or unenforceable provisions
+            had never been contained in this agreement, unless the deletion of those provisions
+            would result in such a material change as to cause completion of the transactions
+            contemplated by this agreement to be unreasonable.</p>
+        <p><strong>17. NOTICES.</strong></p>
+        <ul>
+            <li>(a) <strong>Writing; Permitted Delivery Methods</strong>. Each party giving or
+                making any notice, request, demand, or other communication required or permitted by
+                this agreement shall give that notice in writing and use one of the following types
+                of delivery, each of which is a writing for purposes of this agreement: personal
+                delivery, mail (registered or certified mail, postage prepaid, return-receipt
+                requested), nationally recognized overnight courier (fees prepaid), facsimile, or
+                email.</li>
+            <li>(b) <strong>Addresses.</strong> A party shall address notices under this section to
+                a party at the following addresses:</li>
+        </ul>
+        <ul>
+            <li>If to the Lender:</li>
+            <li><strong><label id="addressLenderIndividualOrBusiness"></label><br><label id="addressLenderName"></label></strong>
+            </li>
+            <li><strong><label id="lenderAddressStreet"></label></strong>
+                <input id='lenderAddressStreetField' type="text" placeholder="Lender Street Address" maxlength='40' />
+                <button class="button-save" id='lenderAddressStreetButton' type='button'>save</button>
+            </li>
+            <li><strong><label id="lenderAddressCity"></label></strong>
+                <input id='lenderAddressCityField' type="text" placeholder="Lender City" maxlength='30' />
+                <button class="button-save" id='lenderAddressCityButton' type='button'>save</button>
+                <strong><label id="lenderAddressState"></label></strong>
+                <input id='lenderAddressStateField' type="text" placeholder="Lender State" maxlength='30' />
+                <button class="button-save" id='lenderAddressStateButton' type='button'>Save</button>
+                <strong><label id="lenderAddressZip"></label></strong>
+                <input id='lenderAddressZipField' type="text" placeholder="Lender Zip Code" maxlength='20' />
+                <button class="button-save" id='lenderAddressZipButton' type='button'>save</button>
+            </li>
+            <li><strong><label id="lenderEmail"></label></strong>
+                <input id='lenderEmailField' type="text" placeholder="Lender Email" maxlength='40' />
+                <button class="button-save" id='lenderEmailButton' type='button'>save</button>
+            </li>
+            <li><strong><label id="lenderXRPaddress"></label></strong>
+                <input id='lenderXRPaddressField' type="text" placeholder="Lender XRP Address" maxlength='35' />
+                <button class="button-save" id='lenderXRPaddressButton' type='button'>save</button>
+            </li>
+        </ul>
+        <ul>
+            <li>If to the Borrower:</li>
+            <li><strong><label id="addressBorrowerIndividualOrBusiness"></label><br><label
+                        id="addressBorrowerName"></label></strong></li>
+            <li><strong><label id="borrowerAddressStreet"></label></strong>
+                <input id='borrowerAddressStreetField' type="text" placeholder="Borrower Street Address"
+                    maxlength='40' />
+                <button class="button-save" id='borrowerAddressStreetButton' type='button'>save</button>
+            </li>
+            <li><strong><label id="borrowerAddressCity"></label></strong>
+                <input id='borrowerAddressCityField' type="text" placeholder="Borrower City" maxlength='30' />
+                <button class="button-save" id='borrowerAddressCityButton' type='button'>save</button>
+                <strong><label id="borrowerAddressState"></label></strong>
+                <input id='borrowerAddressStateField' type="text" placeholder="Borrower State" maxlength='30' />
+                <button class="button-save" id='borrowerAddressStateButton' type='button'>save</button>
+                <strong><label id="borrowerAddressZip"></label></strong>
+                <input id='borrowerAddressZipField' type="text" placeholder="Borrower Zip Code" maxlength='20' />
+                <button class="button-save" id='borrowerAddressZipButton' type='button'>save</button>
+            </li>
+            <li><strong><label id="borrowerEmail"></label></strong>
+                <input id='borrowerEmailField' type="text" placeholder="Borrower Email" maxlength='40' />
+                <button class="button-save" id='borrowerEmailButton' type='button'>save</button>
+            </li>
+            <li><strong><label id="borrowerXRPaddress"></label></strong>
+                <input id='borrowerXRPaddressField' type="text" placeholder="Borrower XRP Address" maxlength='35' />
+                <button class="button-save" id='borrowerXRPaddressButton' type='button'>save</button>
+            </li>
+            <li>(c) <strong>Effectiveness.</strong> A notice is effective only if the party giving
+                notice complies with subsections (a) and (b) and if the recipient receives the
+                notice.</li>
+        </ul>
+        <p><strong>18. WAIVER.</strong></p>
+        <p>No waiver of a breach, failure of any condition, or any right or remedy contained in or
+            granted by the provisions of this agreement will be effective unless it is in writing
+            and signed by the party waiving the breach, failure, right, or remedy. No waiver of any
+            breach, failure, right, or remedy will be deemed a waiver of any other breach, failure,
+            right, or remedy, whether or not similar, and no waiver will constitute a continuing
+            waiver, unless the writing so specifies.</p>
+        <p><strong>19. ENTIRE AGREEMENT.</strong></p>
+        <p>This agreement, together with the other Loan Documents, constitutes the final agreement
+            of the parties. It is the complete and exclusive expression of the parties' agreement
+            with respect to the subject matter of this agreement. All prior and contemporaneous
+            communications, negotiations, and agreements between the parties relating to the subject
+            matter of this agreement are expressly merged into and superseded by this agreement. The
+            provisions of this agreement may not be explained, supplemented, or qualified by
+            evidence of trade usage or a prior course of dealings. Neither party was induced to
+            enter this agreement by, and neither party is relying on, any statement, representation,
+            warranty, or agreement of the other party except those set forth expressly in this
+            agreement. Except as set forth expressly in this agreement, there are no conditions
+            precedent to this agreement's effectiveness.</p>
+        <p><strong>20. HEADINGS.</strong></p>
+        <p>The descriptive headings of the sections and subsections of this agreement are for
+            convenience only, and do not affect this agreement's construction or interpretation.</p>
+        <p><strong>21. EFFECTIVENESS.</strong></p>
+        <p>This agreement will become effective when all parties have signed it. The date this
+            agreement is signed by the last party to sign it (as indicated by the date associated
+            with that party's signature) will be deemed the date of this agreement.</p>
+        <p><strong>22. NECESSARY ACTS; FURTHER ASSURANCES.</strong></p>
+        <p>Each party shall use all reasonable efforts to take, or cause to be taken, all actions
+            necessary or desirable to consummate and make effective the transactions this agreement
+            contemplates or to evidence or carry out the intent and purposes of this agreement.</p>
+
+        <p><span className="text-center">[SIGNATURE PAGE FOLLOWS]</span></p>
+
+        <p>Each party is signing this agreement on the date stated opposite that party's signature.</p>
+        <br>
+        <p><strong><label id="signingLenderIndividualOrBusiness"></label>
+                <label id="signingLenderName"></label><br>
+                <label id="signingLenderAgentName"></label>
+                <label id="signingLenderAgentTitle"></label></strong></p>
+        <input id="signingLenderAgentNameField" type="text" placeholder="Lender Agent Name" maxlength='40' />
+        <button class="button-save" id="signingLenderAgentNameButton" type="button">save</button>
+        <input id="signingLenderAgentTitleField" type="text" placeholder="Lender Agent Title" maxlength='40' />
+        <button class="button-save" id="signingLenderAgentTitleButton" type="button">save</button>
+        <ul>
+            <li><label id="step_1" style="display: block;">1. Lender sign in with Xumm wallet XRP address:</label>
+                <strong><label class="mt-3 h4" id="sub_1"></label></strong>
+                <button class="button-XUMM" style="display: block;" id="lenderSignIn">Lender SignIn</button>
+            </li>
+            <li><label id="step_2" style="display: block;">2. Lender sign Agreement & deposit Escrow XRP Loan (cancel & return via 
+                <a href="https://www.xrptoolkit.com/get-wallet" target="blank" rel="noopener noreferrer">XRP Toolkit</a> if Borrower does not sign):</label>
+                <button class="button-long" style="display: block;" id="lenderEscrowCreate">Sign Agreement -> Deposit Loan</button>
+            </li>
+            <li><label id="step_3" style="display: block;">3. Get Agreement EscrowCreate Transaction hash viewable in 
+                <a href="https://bithomp.com/explorer/" target="blank" rel="noopener noreferrer">XRP Explorer</a>:</label>
+                <button class="button-long" style="display: block;" id='getEscrowHashSequenceButton' onclick="getEscrowHashSequence();">Get EscrowCreate XRPL tx.hash</button>
+            </li>
+            <li><strong><label id="escrowCreateHashLabel">EscrowCreate tx.hash: </label></strong><br>
+            </li>
+            <li><strong><label id="lenderEscrowSignedDateLabel">Date:______________________________________</label></strong>
+            </li>
+            <li><strong><label id="signedByLenderAgentName">Signed By:_____________________________________________________</label>
+                <label id="signedByLenderAgentTitle"></label></strong>
+            </li>
+            <li><label id="step_4" style="display: block;">4. Lender Logout:</label>
+                <button class="button-XUMM" style="display: block;" id="lenderLogout">Lender Logout</button>
+            </li><br>
+        </ul>
+        
+        <strong><label class="mt-3 h4" id="notAuthorizedAddressLabel"></label></strong>
+        <button class="button-save" style="display: none;" id="notAuthorizedAddressLogoutButton">Logout</button>
+        
+        <p><strong><label id="signingBorrowerIndividualOrBusiness"></label>
+                <label id="signingBorrowerName"></label><br>
+                <label id="signingBorrowerAgentName"></label>
+                <label id="signingBorrowerAgentTitle"></label></strong></p>
+        <input id="signingBorrowerAgentNameField" type="text" placeholder="Borrower Agent Name" maxlength="40" />
+        <button class="button-save" id="signingBorrowerAgentNameButton" type="button">save</button>
+        <input id="signingBorrowerAgentTitleField" type="text" placeholder="Borrower Agent Title" maxlength="40" />
+        <button class="button-save" id="signingBorrowerAgentTitleButton" type="button">save</button>
+        <ul>
+            <li><label id="step_5" style="display: block;">5. Borrower sign in with Xumm wallet XRP address:</label>
+                <strong><label class="mt-3 h4" id="sub_2">(please sign in after Lender logs out)</label></strong>
+                <button class="button-XUMM" style="display: block;" id="borrowerSignIn">Borrower SignIn</button>
+            </li>
+            <li><label id="step_6" style="display: block;">6. Borrower sign Agreement & receive Escrow XRP Loan:</label>
+                <button class="button-long" style="display: block;" id="borrowerEscrowFinish">Sign Agreement -> Receive Loan</button>
+            </li>
+            <li><label id="step_7" style="display: block;">7. Get Agreement EscrowFinish Transaction hash viewable in 
+                <a href="https://bithomp.com/explorer/" target="blank" rel="noopener noreferrer">XRP Explorer</a>:</label>
+                <button class="button-long" style="display: block;" id='getEscrowFinishHashButton' onclick="getEscrowFinishHash();">Get EscrowFinish XRPL tx.hash</button>
+            </li>
+            <li><strong><label id="escrowFinishHashLabel">EscrowFinish tx.hash: </label></strong><br>
+            </li>
+            <li><strong><label id="borrowerEscrowSignedDateLabel">Date:______________________________________</label></strong>
+            </li>
+            <li><strong><label id="signedByBorrowerAgentName">Signed By:_____________________________________________________</label>
+                <label id="signedByBorrowerAgentTitle"></label></strong>
+            </li><br>
+        </ul>
+
+        <p>[PAGE BREAK HERE]</p>
+        <strong><span className="text-center">EXHIBIT A</span></strong>
+        <p><span className="text-center">[Enter promissory note]</span></p>
+
+        <strong><label id="promissaryNote"></label></strong>
+        <textarea rows="5" cols="100" id="promissaryNoteField" name="text" placeholder="[Enter promissory note]"></textarea>
+        <button class="button-save" id='promissaryNoteButton' type='button'>save</button><br>
+        
+        <ul>
+        <li><label id="step_8" style="display: block;">8. Generate PDF download & record as XRP Ledger Memo via Borrower 1 XRP payment to XRPLegalDocs:</label>
+            <button class="button-long" id='generatePDF' style="display: block;">Generate PDF & XRPL Memo</button>
+        </li>
+        <li><label id="step_9" style="display: block;">9. Borrower Logout:</label>
+            <button class="button-XUMM" style="display: block;" id="borrowerLogout">Borrower Logout</button>
+        </li>
+        </ul>
+    </div>
+<!-- ====================== END OF SECURITY AGREEMENT FORM =================================== -->
+<!-- ====================== Xumm jsmodule-payload.html ======================================= -->
+    <script type="module">
+        import 'https://xumm.app/assets/cdn/xumm-oauth2-pkce.min.js?v=2.7.1'
+        const xumm = new XummPkce('c1a13cfd-3145-4c50-aab0-c4f7eab920be', {
+            implicit: true, // Implicit: allows to e.g. move from social browser to stock browser
+            redirectUrl: document.location.href + '?custom_state=test'
+        })
+        document.getElementById('lenderSignIn').onclick = () => xumm.authorize().catch(e => console.log('e', e))
+        document.getElementById('borrowerSignIn').onclick = () => xumm.authorize().catch(e => console.log('e', e))
+        const signedIn = async () => {
+            const state = await xumm.state()
+            if (state?.me?.sub) {
+                if (state.me.sub === lenderXRPaddressField) {
+                    document.getElementById('lenderSignIn').style.display = 'none'
+                    document.getElementById('step_1').style.display = 'none'
+                    document.getElementById('sub_1').innerText = 'XRP Address: ' + state.me.sub
+                } else if (state.me.sub === borrowerXRPaddressField) {
+                    document.getElementById('borrowerSignIn').style.display = 'none'
+                    document.getElementById('step_5').style.display = 'none'
+                    document.getElementById('sub_2').innerText = 'XRP Address: ' +  state.me.sub
+                } else {
+                    document.getElementById('notAuthorizedAddressLogoutButton').style.display = 'block'
+                    document.getElementById('notAuthorizedAddressLabel').innerText = 
+                    "----XXXX------ ADDRESS NOT AUTHORIZED TO SIGN THIS DOCUMENT -------XXXX----"
+                }
+            }
+        }
+// --------------------------------- lenderEscrowCreate() --------------------------------------
+        document.getElementById('lenderEscrowCreate').onclick = async () => {
+            const decoder = new TextDecoder();
+            const encoder = new TextEncoder();
+            const message = 'XRPLegalDocs.com EscrowCreate Transaction';
+            const messageAsUint8Array = encoder.encode(message);
+            const hex = Array.from(messageAsUint8Array)
+                .map(b => b.toString(16).padStart(2, '0'))
+                .join('')
+                .toUpperCase();
+            console.log('EscrowCreate MemoData: ' + hex);
+
+            const rippleOffset = 946684800;
+            const cancelAfter = Math.floor(Date.now() / 1000) + (10*60) - rippleOffset; // cancel after 10 min
+            // const finishAfter = Math.floor(Date.now() / 1000) + 1 - rippleOffset;
+            console.log('Escrow created: ' + Date());
+            
+            generateConditionsFulfillment();
+            document.getElementById('step_2').style.display = 'none';
+            document.getElementById('lenderEscrowCreate').style.display = 'none';
+            
+            const escrowLoanAmount = loanAmountField * 1_000_000;
+            
+            const { sdk } = await xumm.state()
+            const payload = await sdk.payload.create({
+                TransactionType: 'EscrowCreate',
+                Destination: borrowerXRPaddressField,
+                Amount: String(escrowLoanAmount),
+                CancelAfter: cancelAfter,
+                Condition: condition,
+                Memos: [{   Memo: {
+                                MemoData: hex
+                            }
+                        }],
+            })
+             if (payload.pushed) {
+                alert('Payload `' + payload.uuid + '` pushed to your phone.')
+            } else {
+                // You can also render `payload.refs.qr_png` in your UI
+                alert('Payload not pushed, opening payload...')
+                window.open(payload.next.always)
+            }
+        }
+// ============================ borrowerEscrowFinish() =========================   
+        document.getElementById('borrowerEscrowFinish').onclick = async () => {
+            const decoder = new TextDecoder();
+            const encoder = new TextEncoder();
+            const message = 'XRPLegalDocs.com EscrowFinish Transaction';
+            const messageAsUint8Array = encoder.encode(message);
+            const hex = Array.from(messageAsUint8Array)
+                .map(b => b.toString(16).padStart(2, '0'))
+                .join('')
+                .toUpperCase();
+            console.log('EscrowFinish hex: ' + hex);
+            document.getElementById('step_6').style.display = 'none';
+            document.getElementById('borrowerEscrowFinish').style.display = 'none';
+// -------------------------------------------- sdk.payload.create -------------
+            const { sdk } = await xumm.state()
+            const payload = await sdk.payload.create({
+                Account: lenderXRPaddressField,
+                TransactionType: 'EscrowFinish',
+                Owner: lenderXRPaddressField,
+                OfferSequence: sequence,
+                Destination: borrowerXRPaddressField,
+                Condition: condition,
+                Fulfillment: fulfillment,
+                Fee: 500,
+                Memos: [
+                            {
+                                Memo: {
+                                    MemoData: hex
+                                }
+                            }
+                        ],
+            })
+            if (payload.pushed) {
+                alert('Payload `' + payload.uuid + '` pushed to your phone.')
+            } else {
+                // You can also render `payload.refs.qr_png` in your UI
+                alert('Payload not pushed, opening payload...')
+                window.open(payload.next.always)
+            }
+        }
+// ======================== END borrowerEscrowFinish() ========================= 
+// ================================= Logouts ===================================    
+        document.getElementById('lenderLogout').onclick = () => {
+            xumm.logout()
+            document.getElementById('step_4').style.display = 'none';
+            document.getElementById('lenderLogout').style.display = 'none'
+        }
+
+        document.getElementById('borrowerLogout').onclick = () => {
+            xumm.logout()
+            document.getElementById('step_9').style.display = 'none'
+            document.getElementById('borrowerLogout').style.display = 'none'
+        }
+
+        document.getElementById('notAuthorizedAddressLogoutButton').onclick = () => {
+            xumm.logout()
+            document.getElementById('notAuthorizedAddressLogoutButton').style.display = 'none'
+            document.getElementById('notAuthorizedAddressLabel').innerText = ' '
+        }
+
+        xumm.on("error", error => console.log("error", error))
+        xumm.on("success", () => signedIn())
+        xumm.on("retrieved", () => signedIn())
+    </script>
+<!-- ==================== END Xumm jsmodule-payload.html =================== -->
+    <script>
+// ============================ generateConditionsFulfillment() ================        
+        var fulfillment;
+        var condition;
+        function generateConditionsFulfillment() {
+            const cc = require('five-bells-condition')
+            const {Buffer} = require('Buffer')
+            
+            const fulfillment_bytes = Buffer.from('Hi! This is me testing :) 😇  🎉🎈🍺🎂🍾🍻...'.repeat(1), 'utf8') //.toString('hex').toUpperCase()
+            // Or random:
+            // const fulfillment_bytes = crypto.randomBytes(2)
+            console.log('EscrowFinish Fee:', 10 * (33 + Math.ceil(Buffer.byteLength(fulfillment_bytes) / 16)))
+            console.log()
+            console.log(fulfillment_bytes)
+            
+            const myFulfillment = new cc.PreimageSha256()
+            myFulfillment.setPreimage(fulfillment_bytes)
+            
+            fulfillment = myFulfillment.serializeBinary().toString('hex').toUpperCase()
+            console.log('Fulfillment: ', fulfillment)
+            
+            condition = myFulfillment.getConditionBinary().toString('hex').toUpperCase()
+            console.log('Condition  : ', condition)
+            
+            console.log(
+                'Fulfillment valid for Condition?      ',
+                cc.validateFulfillment(
+                    cc.Fulfillment.fromBinary(Buffer.from(fulfillment, 'hex')).serializeUri(), 
+                    cc.Condition.fromBinary(Buffer.from(condition, 'hex')).serializeUri()
+                )
+            )
+        }
+        
+// ============================= getEscrowHashSequence() =================================        
+        var escrowCreateHash;
+        var sequence;
+        async function getEscrowHashSequence() {
+          const api = new xrpl.Client('wss://xrplcluster.com');
+          await api.connect();
+           let response = await api.request({
+            "command": "account_objects",
+            "account": lenderXRPaddressField,
+            "type": "escrow"
+          });
+          escrowCreateHash = response.result.account_objects[0].PreviousTxnID;
+          console.log("PreviousTxnID = hash: " + escrowCreateHash);
+          
+          document.getElementById('step_3').style.display = 'none';
+          document.getElementById('getEscrowHashSequenceButton').style.display = 'none';
+          document.getElementById('lenderEscrowSignedDateLabel').innerText = "Date:__________" + Date() + "__________";
+          document.getElementById('escrowCreateHashLabel').innerText = "EscrowCreate tx.hash: " + escrowCreateHash;
+          
+          let response2 = await api.request({
+             "command": "tx",
+  			 "transaction": escrowCreateHash,
+  			 "binary": false
+          });
+          sequence = response2.result.Sequence;
+          console.log("Sequence: " + sequence);
+        }
+        
+// ============================= getEscrowFinishHash() =================================        
+        var escrowFinishHash;
+        async function getEscrowFinishHash() {
+          const api = new xrpl.Client('wss://xrplcluster.com');
+          await api.connect();
+           let response2 = await api.request({
+            "command": "account_tx",
+            "account": borrowerXRPaddressField
+          });
+          escrowFinishHash = response2.result.transactions[0].tx.hash;
+          console.log("EscrowFinish tx.hash: " + escrowFinishHash);
+          
+          document.getElementById('step_7').style.display = 'none';
+          document.getElementById('getEscrowFinishHashButton').style.display = 'none';
+          document.getElementById('borrowerEscrowSignedDateLabel').innerText = "Date:__________" + Date() + "__________";
+          document.getElementById('escrowFinishHashLabel').innerText = "EscrowFinish tx.hash: " + escrowFinishHash;
+        }
+// ============================= generatePDF() =================================
+         document.getElementById('generatePDF').onclick = async () => {
+            document.getElementById('step_8').style.display = 'none';
+            document.getElementById('generatePDF').style.display = 'none';
+            var element = document.getElementById('SecurityAgreementForm');
+            var opt = {
+                margin: 1,
+                filename: 'SecurityAgreement.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, willReadFrequently: true },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
+                enableLinks: true
+            };
+            var worker = html2pdf().set(opt).from(element).outputPdf('bloburl');
+            html2pdf().set(opt).from(element).toPdf().save();
+            
+            const decoder = new TextDecoder();
+            const encoder = new TextEncoder();
+            const message = worker;
+            const messageAsUint8Array = encoder.encode(message);
+            const SecurityAgreementHex = Array.from(messageAsUint8Array)
+                .map(b => b.toString(16).padStart(2, '0'))
+                .join('')
+                .toUpperCase();
+            console.log('generatePDF() SecurityAgreement.pdf hex: ' + SecurityAgreementHex);
+            
+            const { sdk } = await xumm.state()
+            const payload = await sdk.payload.create({
+                TransactionType: 'Payment',
+                Destination: 'r4WZabeNLR5VEdWe6bCa7ctrv7EWZ9Vrr3',
+                Amount: String(1_000_000),
+                Memos: [
+                            {
+                                Memo: {
+                                    MemoData: SecurityAgreementHex
+                                }
+                            }
+                        ],
+            })
+
+            if (payload.pushed) {
+                alert('Payload `' + payload.uuid + '` pushed to your phone.')
+            } else {
+                // You can also render `payload.refs.qr_png` in your UI
+                alert('Payload not pushed, opening payload...')
+                window.open(payload.next.always)
+            }
+        }
+// ================================ memoHex() ==================================
+        var MemoHex; 
+        function memoHex() {
+            const decoder = new TextDecoder();
+            const encoder = new TextEncoder();
+            const message = 'You rock!';
+            const messageAsUint8Array = encoder.encode(message);
+            const hex = Array.from(messageAsUint8Array)
+                .map(b => b.toString(16).padStart(2, '0'))
+                .join('')
+                .toUpperCase();
+            document.getElementById('memoHexLabel').innerText = 'Memo hex: ' + hex;
+            console.log('Memo hex: ' + hex);
+            
+            document.getElementById('memoHexButton').style.display = 'none';
+        }
+// =========================== input text-area functions =======================
+        var lenderNameField;
+        function getLenderName() {
+            lenderNameField = document.getElementById('lenderNameField').value;
+            var lenderNameResult = document.getElementById('lenderNameResult');
+            var lenderNameButton = document.getElementById('lenderNameButton');
+            document.getElementById('lenderName').innerText = lenderNameField + ',';
+            document.getElementById('lenderNameButton').style.display = 'none';
+            document.getElementById('lenderNameField').style.display = 'none';
+            document.getElementById('addressLenderName').innerText = lenderNameField;
+        }
+        function getLenderIndividual() {
+            document.getElementById('lenderIndividualOrBusiness').innerText = ' an individual,';
+            document.getElementById('lenderIndividualButton').style.display = 'none';
+            document.getElementById('lenderBusinessButton').style.display = 'none';
+            document.getElementById('addressLenderIndividualOrBusiness').innerText = 'Individual:';
+            document.getElementById('signingLenderIndividualOrBusiness').innerText = lenderNameField + ', authorized signing agent:';
+            // document.getElementById('signingLenderName').innerText = lenderNameField;
+            // document.getElementById('signingLenderAgentNameButton').style.display = 'none';
+            // document.getElementById('signingLenderAgentNameField').style.display = 'none';
+            // document.getElementById('signingLenderAgentTitleButton').style.display = 'none';
+            // document.getElementById('signingLenderAgentTitleField').style.display = 'none';
+        }
+        function getLenderBusiness() {
+            document.getElementById('lenderIndividualOrBusiness').innerText = ' a business,';
+            document.getElementById('lenderIndividualButton').style.display = 'none';
+            document.getElementById('lenderBusinessButton').style.display = 'none';
+            document.getElementById('addressLenderIndividualOrBusiness').innerText = 'Business:';
+            document.getElementById('signingLenderIndividualOrBusiness').innerText = lenderNameField + ', authorized signing agent:';
+        }
+        var borrowerNameField;
+        function getBorrowerName() {
+            borrowerNameField = document.getElementById('borrowerNameField').value;
+            var borrowerNameResult = document.getElementById('borrowerNameResult');
+            var borrowerNameButton = document.getElementById('borrowerNameButton');
+            document.getElementById('borrowerName').innerText = borrowerNameField + ',';
+            document.getElementById('borrowerNameButton').style.display = 'none';
+            document.getElementById('borrowerNameField').style.display = 'none';
+            document.getElementById('addressBorrowerName').innerText = borrowerNameField;
+        }
+        function getBorrowerIndividual() {
+            document.getElementById('borrowerIndividualOrBusiness').innerText = ' an individual,';
+            document.getElementById('borrowerIndividualButton').style.display = 'none';
+            document.getElementById('borrowerBusinessButton').style.display = 'none';
+            document.getElementById('addressBorrowerIndividualOrBusiness').innerText = 'Individual:';
+            document.getElementById('signingBorrowerIndividualOrBusiness').innerText = borrowerNameField + ', authorized signing agent:';
+            // document.getElementById('signingBorrowerName').innerText = borrowerNameField;
+            // document.getElementById('signingBorrowerAgentNameButton').style.display = 'none';
+            // document.getElementById('signingBorrowerAgentNameField').style.display = 'none';
+            // document.getElementById('signingBorrowerAgentTitleButton').style.display = 'none';
+            // document.getElementById('signingBorrowerAgentTitleField').style.display = 'none';
+        }
+        function getBorrowerBusiness() {
+            document.getElementById('borrowerIndividualOrBusiness').innerText = ' a business,';
+            document.getElementById('borrowerIndividualButton').style.display = 'none';
+            document.getElementById('borrowerBusinessButton').style.display = 'none';
+            document.getElementById('addressBorrowerIndividualOrBusiness').innerText = 'Business:';
+            document.getElementById('signingBorrowerIndividualOrBusiness').innerText = borrowerNameField + ', authorized signing agent:';
+        }
+        var loanAmountField;
+        function getLoanAmount() {
+            loanAmountField = document.getElementById('loanAmountField').value;
+            var loanAmountResult = document.getElementById('loanAmountResult');
+            var loanAmountButton = document.getElementById('loanAmountButton');
+            document.getElementById('loanAmount').innerText = loanAmountField;
+            document.getElementById('loanAmountButton').style.display = 'none';
+            document.getElementById('loanAmountField').style.display = 'none';
+        }
+        function getSecuredProperty() {
+            var securedPropertyField = document.getElementById('securedPropertyField').value;
+            var securedPropertyResult = document.getElementById('securedPropertyResult');
+            var securedPropertyButton = document.getElementById('securedPropertyButton');
+            document.getElementById('securedProperty').innerText = securedPropertyField;
+            document.getElementById('securedPropertyButton').style.display = 'none';
+            document.getElementById('securedPropertyField').style.display = 'none';
+        }
+        function getLenderAddressStreet() {
+            var lenderAddressStreetField = document.getElementById('lenderAddressStreetField').value;
+            var lenderAddressStreetResult = document.getElementById('lenderAddressStreetResult');
+            var lenderAddressStreetButton = document.getElementById('lenderAddressStreetButton');
+            document.getElementById('lenderAddressStreet').innerText = lenderAddressStreetField;
+            document.getElementById('lenderAddressStreetButton').style.display = 'none';
+            document.getElementById('lenderAddressStreetField').style.display = 'none';
+        }
+        function getLenderAddressCity() {
+            var lenderAddressCityField = document.getElementById('lenderAddressCityField').value;
+            var lenderAddressCityResult = document.getElementById('lenderAddressCityResult');
+            var lenderAddressCityButton = document.getElementById('lenderAddressCityButton');
+            document.getElementById('lenderAddressCity').innerText = lenderAddressCityField + ',';
+            document.getElementById('lenderAddressCityButton').style.display = 'none';
+            document.getElementById('lenderAddressCityField').style.display = 'none';
+        }
+        function getLenderAddressState() {
+            var lenderAddressStateField = document.getElementById('lenderAddressStateField').value;
+            var lenderAddressStateResult = document.getElementById('lenderAddressStateResult');
+            var lenderAddressStateButton = document.getElementById('lenderAddressStateButton');
+            document.getElementById('lenderAddressState').innerText = lenderAddressStateField;
+            document.getElementById('lenderAddressStateButton').style.display = 'none';
+            document.getElementById('lenderAddressStateField').style.display = 'none';
+        }
+        function getLenderAddressZip() {
+            var lenderAddressZipField = document.getElementById('lenderAddressZipField').value;
+            var lenderAddressZipResult = document.getElementById('lenderAddressZipResult');
+            var lenderAddressZipButton = document.getElementById('lenderAddressZipButton');
+            document.getElementById('lenderAddressZip').innerText = lenderAddressZipField;
+            document.getElementById('lenderAddressZipButton').style.display = 'none';
+            document.getElementById('lenderAddressZipField').style.display = 'none';
+        }
+        function getLenderEmail() {
+            var lenderEmailField = document.getElementById('lenderEmailField').value;
+            var lenderEmailResult = document.getElementById('lenderEmailResult');
+            var lenderEmailButton = document.getElementById('lenderEmailButton');
+            document.getElementById('lenderEmail').innerText = lenderEmailField;
+            document.getElementById('lenderEmailButton').style.display = 'none';
+            document.getElementById('lenderEmailField').style.display = 'none';
+        }
+        var lenderXRPaddressField = 'rUSxiqFY7x7fAcHiPtbkkvBwV39BtwDymV';
+        function getLenderXRPaddress() {
+            lenderXRPaddressField = document.getElementById('lenderXRPaddressField').value;
+            var lenderXRPaddressResult = document.getElementById('lenderXRPaddressResult');
+            var lenderXRPaddressButton = document.getElementById('lenderXRPaddressButton');
+            document.getElementById('lenderXRPaddress').innerText = 'Lender XRP address: ' + lenderXRPaddressField;
+            document.getElementById('lenderXRPaddressButton').style.display = 'none';
+            document.getElementById('lenderXRPaddressField').style.display = 'none';
+        }
+        function getBorrowerAddressStreet() {
+            var borrowerAddressStreetField = document.getElementById('borrowerAddressStreetField').value;
+            var borrowerAddressStreetResult = document.getElementById('borrowerAddressStreetResult');
+            var borrowerAddressStreetButton = document.getElementById('borrowerAddressStreetButton');
+            document.getElementById('borrowerAddressStreet').innerText = borrowerAddressStreetField;
+            document.getElementById('borrowerAddressStreetButton').style.display = 'none';
+            document.getElementById('borrowerAddressStreetField').style.display = 'none';
+        }
+        function getBorrowerAddressCity() {
+            var borrowerAddressCityField = document.getElementById('borrowerAddressCityField').value;
+            var borrowerAddressCityResult = document.getElementById('borrowerAddressCityResult');
+            var borrowerAddressCityButton = document.getElementById('borrowerAddressCityButton');
+            document.getElementById('borrowerAddressCity').innerText = borrowerAddressCityField + ',';
+            document.getElementById('borrowerAddressCityButton').style.display = 'none';
+            document.getElementById('borrowerAddressCityField').style.display = 'none';
+        }
+        function getBorrowerAddressState() {
+            var borrowerAddressStateField = document.getElementById('borrowerAddressStateField').value;
+            var borrowerAddressStateResult = document.getElementById('borrowerAddressStateResult');
+            var borrowerAddressStateButton = document.getElementById('borrowerAddressStateButton');
+            document.getElementById('borrowerAddressState').innerText = borrowerAddressStateField;
+            document.getElementById('borrowerAddressStateButton').style.display = 'none';
+            document.getElementById('borrowerAddressStateField').style.display = 'none';
+        }
+        function getBorrowerAddressZip() {
+            var borrowerAddressZipField = document.getElementById('borrowerAddressZipField').value;
+            var borrowerAddressZipResult = document.getElementById('borrowerAddressZipResult');
+            var borrowerAddressZipButton = document.getElementById('borrowerAddressZipButton');
+            document.getElementById('borrowerAddressZip').innerText = borrowerAddressZipField;
+            document.getElementById('borrowerAddressZipButton').style.display = 'none';
+            document.getElementById('borrowerAddressZipField').style.display = 'none';
+        }
+        function getBorrowerEmail() {
+            var borrowerEmailField = document.getElementById('borrowerEmailField').value;
+            var borrowerEmailResult = document.getElementById('borrowerEmailResult');
+            var borrowerEmailButton = document.getElementById('borrowerEmailButton');
+            document.getElementById('borrowerEmail').innerText = borrowerEmailField;
+            document.getElementById('borrowerEmailButton').style.display = 'none';
+            document.getElementById('borrowerEmailField').style.display = 'none';
+        }
+        var borrowerXRPaddressField = 'r3oX4DVL621odm2WVqKsPVCxPDgtx7eJ4V';
+        function getBorrowerXRPaddress() {
+            borrowerXRPaddressField = document.getElementById('borrowerXRPaddressField').value;
+            var borrowerXRPaddressResult = document.getElementById('borrowerXRPaddressResult');
+            var borrowerXRPaddressButton = document.getElementById('borrowerXRPaddressButton');
+            document.getElementById('borrowerXRPaddress').innerText = 'Borrower XRP address: ' + borrowerXRPaddressField;
+            document.getElementById('borrowerXRPaddressButton').style.display = 'none';
+            document.getElementById('borrowerXRPaddressField').style.display = 'none';
+        }
+        var signingLenderAgentName;
+        function getSigningLenderAgentName() {
+            signingLenderAgentNameField = document.getElementById('signingLenderAgentNameField').value;
+            var signingLenderAgentNameResult = document.getElementById('signingLenderAgentNameResult');
+            var signingLenderAgentNameButton = document.getElementById('signingLenderAgentNameButton');
+            document.getElementById('signingLenderAgentName').innerText = signingLenderAgentNameField + ',';
+            document.getElementById('signedByLenderAgentName').innerText = 'Signed By:____________________' + signingLenderAgentNameField + ', ';
+            document.getElementById('signingLenderAgentNameButton').style.display = 'none';
+            document.getElementById('signingLenderAgentNameField').style.display = 'none';
+        }
+        var signingLenderAgentTitle;
+        function getSigningLenderAgentTitle() {
+            signingLenderAgentTitleField = document.getElementById('signingLenderAgentTitleField').value;
+            var signingLenderAgentTitleResult = document.getElementById('signingLenderAgentTitleResult');
+            var signingLenderAgentTitleButton = document.getElementById('signingLenderAgentTitleButton');
+            document.getElementById('signingLenderAgentTitle').innerText = signingLenderAgentTitleField;
+            document.getElementById('signedByLenderAgentTitle').innerText = signingLenderAgentTitleField + '____________________';
+            document.getElementById('signingLenderAgentTitleButton').style.display = 'none';
+            document.getElementById('signingLenderAgentTitleField').style.display = 'none';
+        }
+        var signingBorrowerAgentName;
+        function getSigningBorrowerAgentName() {
+            signingBorrowerAgentNameField = document.getElementById('signingBorrowerAgentNameField').value;
+            var signingBorrowerAgentNameResult = document.getElementById('signingBorrowerAgentNameResult');
+            var signingBorrowerAgentNameButton = document.getElementById('signingBorrowerAgentNameButton');
+            document.getElementById('signingBorrowerAgentName').innerText = signingBorrowerAgentNameField + ',';
+            document.getElementById('signedByBorrowerAgentName').innerText = 'Signed By:____________________' + signingBorrowerAgentNameField + ', ';
+            document.getElementById('signingBorrowerAgentNameButton').style.display = 'none';
+            document.getElementById('signingBorrowerAgentNameField').style.display = 'none';
+        }
+        var signingBorrowerAgentTitle;
+        function getSigningBorrowerAgentTitle() {
+            signingBorrowerAgentTitleField = document.getElementById('signingBorrowerAgentTitleField').value;
+            var signingBorrowerAgentTitleResult = document.getElementById('signingBorrowerAgentTitleResult');
+            var signingBorrowerAgentTitleButton = document.getElementById('signingBorrowerAgentTitleButton');
+            document.getElementById('signingBorrowerAgentTitle').innerText = signingBorrowerAgentTitleField;
+            document.getElementById('signedByBorrowerAgentTitle').innerText = signingBorrowerAgentTitleField + '____________________';
+            document.getElementById('signingLenderAgentTitleButton').style.display = 'none';
+            document.getElementById('signingBorrowerAgentTitleButton').style.display = 'none';
+            document.getElementById('signingBorrowerAgentTitleField').style.display = 'none';
+        }
+        function getPromissaryNote() {
+            var promissaryNoteField = document.getElementById('promissaryNoteField').value;
+            var promissaryNoteResult = document.getElementById('promissaryNoteResult');
+            var promissaryNoteButton = document.getElementById('promissaryNoteButton');
+            document.getElementById('promissaryNote').innerText = promissaryNoteField;
+            document.getElementById('promissaryNoteButton').style.display = 'none';
+            document.getElementById('promissaryNoteField').style.display = 'none';
+        }
+
+        lenderNameButton.addEventListener('click', getLenderName, false);
+        lenderIndividualButton.addEventListener('click', getLenderIndividual, false);
+        lenderBusinessButton.addEventListener('click', getLenderBusiness, false);
+        borrowerNameButton.addEventListener('click', getBorrowerName, false);
+        borrowerIndividualButton.addEventListener('click', getBorrowerIndividual, false);
+        borrowerBusinessButton.addEventListener('click', getBorrowerBusiness, false);
+        loanAmountButton.addEventListener('click', getLoanAmount, false);
+        securedPropertyButton.addEventListener('click', getSecuredProperty, false);
+        lenderAddressStreetButton.addEventListener('click', getLenderAddressStreet, false);
+        lenderAddressCityButton.addEventListener('click', getLenderAddressCity, false);
+        lenderAddressStateButton.addEventListener('click', getLenderAddressState, false);
+        lenderAddressZipButton.addEventListener('click', getLenderAddressZip, false);
+        lenderEmailButton.addEventListener('click', getLenderEmail, false);
+        lenderXRPaddressButton.addEventListener('click', getLenderXRPaddress, false);
+        borrowerAddressStreetButton.addEventListener('click', getBorrowerAddressStreet, false);
+        borrowerAddressCityButton.addEventListener('click', getBorrowerAddressCity, false);
+        borrowerAddressStateButton.addEventListener('click', getBorrowerAddressState, false);
+        borrowerAddressZipButton.addEventListener('click', getBorrowerAddressZip, false);
+        borrowerEmailButton.addEventListener('click', getBorrowerEmail, false);
+        borrowerXRPaddressButton.addEventListener('click', getBorrowerXRPaddress, false);
+        signingLenderAgentNameButton.addEventListener('click', getSigningLenderAgentName, false);
+        signingLenderAgentTitleButton.addEventListener('click', getSigningLenderAgentTitle, false);
+        signingBorrowerAgentNameButton.addEventListener('click', getSigningBorrowerAgentName, false);
+        signingBorrowerAgentTitleButton.addEventListener('click', getSigningBorrowerAgentTitle, false);
+        promissaryNoteButton.addEventListener('click', getPromissaryNote, false);
+    </script>
+</body>
+
+</html>
