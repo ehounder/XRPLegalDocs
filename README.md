@@ -13,5 +13,5 @@ Future development involves extending the PDF downloads to minting the PDFs into
 
 The present direct peer to peer distributed blockchain financing, i.e. DeFi, meets the definition of financial inclusion and follows through with the potential for scaling as can be immediately realized. Regarding which XRPLegalDocs operates entirely in the browser without backend hence of lightest weight for scaling. Brave, Safari, and Chrome handle the downloads with ease.
 
-Hooks amendment ratification would establish basis for monetization of the business model via partial payments for the downloads and NFTs. Accordingly Hooks would also establish the basis for an employee-owned business plan wherein the lowest number of employees receive partial payments in return for success in developing and governing the best product marketshare.
+Hooks amendment ratification would establish basis for monetization of the business model via partial payments for the downloads and NFTs. Accordingly Hooks would also establish the basis for an employee-owned business plan wherein the lowest number of employees receive partial payments in return for success in developing and governing product marketshare.
 
