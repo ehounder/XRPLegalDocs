@@ -9,7 +9,7 @@ YouTube: [XRPLegalDocs.com legal forms with Xumm wallet UI signs XRP escrow cont
 
 Future development involves extending the PDF downloads to minting the PDFs into NFTs in the cases where the parties choose to make the contracts public records, taking into account of course the extra steps required to create accounts for the NFTs, for example, such as the transaction sequence of the Sologenic securities registered DEX.
 
-## DeFi and Financial Inclusion Drives Scaled-Up Utility
+## DeFi and Financial Inclusion Unlocks Utility Scaling
 
 The present direct peer to peer distributed blockchain financing, i.e. DeFi, meets the definition of financial inclusion and follows through with the potential for scaling as can be immediately realized. Regarding which XRPLegalDocs operates entirely in the browser without backend hence of lightest weight for scaling. Brave, Safari, and Chrome handle the downloads with ease.
 
