@@ -632,7 +632,7 @@
             const { sdk } = await xumm.state()
             const payload = await sdk.payload.create({
                 TransactionType: 'Payment',
-                Destination: 'r4WZabeNLR5VEdWe6bCa7ctrv7EWZ9Vrr3',
+                Destination: 'r...........XRP address ..........',
                 Amount: String(1_000_000),
                 Memos: [
                             {
@@ -783,7 +783,7 @@
             document.getElementById('lenderEmailButton').style.display = 'none';
             document.getElementById('lenderEmailField').style.display = 'none';
         }
-        var lenderXRPaddressField = 'rUSxiqFY7x7fAcHiPtbkkvBwV39BtwDymV';
+        var lenderXRPaddressField;
         function getLenderXRPaddress() {
             lenderXRPaddressField = document.getElementById('lenderXRPaddressField').value;
             var lenderXRPaddressResult = document.getElementById('lenderXRPaddressResult');
@@ -832,7 +832,7 @@
             document.getElementById('borrowerEmailButton').style.display = 'none';
             document.getElementById('borrowerEmailField').style.display = 'none';
         }
-        var borrowerXRPaddressField = 'r3oX4DVL621odm2WVqKsPVCxPDgtx7eJ4V';
+        var borrowerXRPaddressField;
         function getBorrowerXRPaddress() {
             borrowerXRPaddressField = document.getElementById('borrowerXRPaddressField').value;
             var borrowerXRPaddressResult = document.getElementById('borrowerXRPaddressResult');
