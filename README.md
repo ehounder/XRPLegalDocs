@@ -1,4 +1,4 @@
-## ![XRPLegalDocs Logo](XRPLegalDocs_LogoDoc.png) { XRPLegalDocs }
+## ![XRPLegalDocs Logo](XRPLegalDocsfavicon.png) { XRPLegalDocs }
 See project live on XRPL Mainnet: [xrplegaldocs.com](https://xrplegaldocs.com) 
 
 YouTube: [XRPLegalDocs.com legal forms with Xumm wallet UI signs XRP escrow contracts generating PDF download](https://www.youtube.com/watch?v=5xO-xaia31o)
